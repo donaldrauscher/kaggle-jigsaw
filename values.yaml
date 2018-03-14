@@ -1,0 +1,39 @@
+worker:
+  replicas: 5
+  env:
+    - name: EXTRA_PIP_PACKAGES
+      value: >-
+        sklearn
+        scipy
+        gensim
+        pyyaml
+        dask-ml
+        dask-searchcv
+    - name: EXTRA_CONDA_PACKAGES
+      value: >-
+        xgboost
+  limits:
+    cpu: 4
+    memory: 24G
+
+workers:
+  default_resources:
+    cpu: 4
+    memory: 24G
+
+jupyter:
+  env:
+    - name: EXTRA_PIP_PACKAGES
+      value: >-
+        sklearn
+        scipy
+        gensim
+        pyyaml
+        dask-ml
+        dask-searchcv
+    - name: EXTRA_CONDA_PACKAGES
+      value: >-
+        xgboost
+  limits:
+    cpu: 2
+    memory: 12G

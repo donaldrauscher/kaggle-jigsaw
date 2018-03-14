@@ -1,0 +1,2 @@
+{features__kbest__kbest__k: 500, features__tfidf__max_features: 900, features__w2v__size: 800,
+  model__C: 0.01, model__penalty: l1}
