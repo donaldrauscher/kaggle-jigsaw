@@ -17,4 +17,6 @@ helm install -f values.yaml stable/dask
 export JUPYTER_POD=$(kubectl get pods --selector=component=jupyter --output=name | cut -d/ -f2)
 kubectl exec -it $JUPYTER_POD -- mkdir data
 kubectl cp data $JUPYTER_POD:data
+kubectl cp model.ipynb $JUPYTER_POD:model.ipynb
+kubectl cp model_param.yaml $JUPYTER_POD:model_param.yaml
 ```
