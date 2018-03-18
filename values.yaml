@@ -1,5 +1,5 @@
 worker:
-  replicas: 20
+  replicas: 0
   env:
     - name: EXTRA_PIP_PACKAGES
       value: >-
@@ -35,5 +35,5 @@ jupyter:
       value: >-
         xgboost
   limits:
-    cpu: 2
-    memory: 12G
+    cpu: 3
+    memory: 20G
