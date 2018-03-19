@@ -12,6 +12,7 @@ worker:
     - name: EXTRA_CONDA_PACKAGES
       value: >-
         xgboost
+        -c conda-forge
   limits:
     cpu: 1
     memory: 6G
