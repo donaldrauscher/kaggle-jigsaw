@@ -3,3 +3,4 @@ data/**
 venv/**
 terraform.tf*
 .terraform/**
+submission.csv
