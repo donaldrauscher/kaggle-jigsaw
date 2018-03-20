@@ -14,13 +14,13 @@ worker:
         xgboost
         -c conda-forge
   limits:
-    cpu: 1
-    memory: 6G
+    cpu: 4
+    memory: 12G
 
 workers:
   default_resources:
-    cpu: 1
-    memory: 6G
+    cpu: 4
+    memory: 12G
 
 jupyter:
   env:
@@ -37,4 +37,4 @@ jupyter:
         xgboost
   limits:
     cpu: 3
-    memory: 20G
+    memory: 10G

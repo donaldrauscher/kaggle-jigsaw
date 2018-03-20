@@ -26,7 +26,7 @@ resource "google_container_node_pool" "dask-cluster-np" {
 
   node_config {
     preemptible  = false
-    machine_type = "n1-highmem-4"
+    machine_type = "n1-standard-4"
   }
 }
 
