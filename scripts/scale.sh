@@ -1,5 +1,10 @@
 export WORKER_DEPLOY=$(kubectl get deploy --selector=component=worker --output=name)
-kubectl scale --replicas=$2 ${WORKER_DEPLOY}
-
 export PROJECT_ID=$(gcloud config get-value project -q)
-terraform apply -var project=${PROJECT_ID} -var node_count=$1 -auto-approve
+
+if [ $1 = "up" ]; then
+  terraform apply -var project=${PROJECT_ID} -var node_count=$2 -auto-approve
+  kubectl scale --replicas=$3 ${WORKER_DEPLOY}
+else
+  kubectl scale --replicas=$3 ${WORKER_DEPLOY}
+  terraform apply -var project=${PROJECT_ID} -var node_count=$2 -auto-approve
+fi
