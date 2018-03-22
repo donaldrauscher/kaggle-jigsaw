@@ -27,6 +27,7 @@ resource "google_container_node_pool" "dask-cluster-np" {
   node_config {
     preemptible  = false
     machine_type = "n1-standard-4"
+    oauth_scopes = ["https://www.googleapis.com/auth/devstorage.read_write"]
   }
 }
 

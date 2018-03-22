@@ -14,13 +14,13 @@ worker:
         xgboost
         -c conda-forge
   limits:
-    cpu: 4
-    memory: 12G
+    cpu: 1
+    memory: 3.5G
 
 workers:
   default_resources:
-    cpu: 4
-    memory: 12G
+    cpu: 1
+    memory: 3.5G
 
 jupyter:
   env:
@@ -32,9 +32,10 @@ jupyter:
         pyyaml
         dask-ml
         dask-searchcv
+        google-cloud-storage
     - name: EXTRA_CONDA_PACKAGES
       value: >-
         xgboost
   limits:
-    cpu: 3
-    memory: 10G
+    cpu: 2
+    memory: 7G

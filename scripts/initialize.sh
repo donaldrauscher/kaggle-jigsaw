@@ -7,7 +7,3 @@ gcloud config set container/cluster dask-cluster
 
 helm init --wait # note: make sure running helm v2.8.2
 helm install --name dask -f values.yaml stable/dask --wait
-
-export JUPYTER_POD=$(kubectl get pods --selector=component=jupyter -o jsonpath='{.items[0].metadata.name}')
-kubectl exec -it $JUPYTER_POD -- mkdir data
-kubectl cp data $JUPYTER_POD:data

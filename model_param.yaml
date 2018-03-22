@@ -1,3 +1,36 @@
-{features__kbest__kbest__k: 3000, features__tfidf__max_features: 3000, features__w2v__size: 1000,
-  model__colsample_bytree: 0.8, model__learning_rate: 0.05, model__max_depth: 8, model__min_child_weight: 5,
-  model__n_estimators: 1000, model__subsample: 1}
+identity_hate:
+  cv__ngram_range: !!python/tuple [1, 1]
+  kbest__k: 10000
+  model__C: 0.1
+  model__penalty: l2
+  tfidf__norm: l2
+insult:
+  cv__ngram_range: !!python/tuple [1, 1]
+  kbest__k: 25000
+  model__C: 0.1
+  model__penalty: l2
+  tfidf__norm: l2
+obscene:
+  cv__ngram_range: !!python/tuple [1, 1]
+  kbest__k: 10000
+  model__C: 0.01
+  model__penalty: l1
+  tfidf__norm: null
+severe_toxic:
+  cv__ngram_range: !!python/tuple [1, 2]
+  kbest__k: 10000
+  model__C: 0.1
+  model__penalty: l2
+  tfidf__norm: l2
+threat:
+  cv__ngram_range: !!python/tuple [1, 1]
+  kbest__k: 10000
+  model__C: 0.1
+  model__penalty: l2
+  tfidf__norm: l2
+toxic:
+  cv__ngram_range: !!python/tuple [1, 1]
+  kbest__k: all
+  model__C: 0.1
+  model__penalty: l2
+  tfidf__norm: l2
