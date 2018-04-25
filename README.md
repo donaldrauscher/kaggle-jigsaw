@@ -13,6 +13,7 @@ time source scripts/destroy.sh
 Copy models/params to/from Jupyter:
 ``` bash
 export JUPYTER_POD=$(kubectl get pods --selector=component=jupyter -o jsonpath='{.items[0].metadata.name}')
+kubectl cp model.ipynb $JUPYTER_POD:model.ipynb
 kubectl cp $JUPYTER_POD:model.ipynb model.ipynb
 kubectl cp $JUPYTER_POD:model_param.yaml model_param.yaml
 ```
