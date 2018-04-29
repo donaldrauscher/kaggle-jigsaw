@@ -118,7 +118,7 @@ class Blender(FeatureUnion):
         self.transformer_list = transformer_list
         self.scaler_list = [(t, StandardScaler()) for t, _ in transformer_list]
         self.n_jobs = n_jobs
-        default_transformer_weights = [1.0 / len(transformer_list) for i, j in transformer_list]
+        default_transformer_weights = list(np.ones(len(transformer_list)) / len(transformer_list))
         self.transformer_weights = transformer_weights if transformer_weights else default_transformer_weights
 
     @property
