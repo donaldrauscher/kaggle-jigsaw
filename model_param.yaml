@@ -1,36 +1,10 @@
-identity_hate:
-  cv__ngram_range: !!python/tuple [1, 1]
-  kbest__k: 10000
-  model__C: 0.1
-  model__penalty: l2
-  tfidf__norm: l2
-insult:
-  cv__ngram_range: !!python/tuple [1, 1]
-  kbest__k: 25000
-  model__C: 0.1
-  model__penalty: l2
-  tfidf__norm: l2
-obscene:
-  cv__ngram_range: !!python/tuple [1, 1]
-  kbest__k: 10000
-  model__C: 0.01
-  model__penalty: l1
-  tfidf__norm: null
-severe_toxic:
-  cv__ngram_range: !!python/tuple [1, 2]
-  kbest__k: 10000
-  model__C: 0.1
-  model__penalty: l2
-  tfidf__norm: l2
-threat:
-  cv__ngram_range: !!python/tuple [1, 1]
-  kbest__k: 10000
-  model__C: 0.1
-  model__penalty: l2
-  tfidf__norm: l2
-toxic:
-  cv__ngram_range: !!python/tuple [1, 1]
-  kbest__k: all
-  model__C: 0.1
-  model__penalty: l2
-  tfidf__norm: l2
+d2v__d2v__alpha: 0.025
+d2v__d2v__epochs: 30
+d2v__d2v__min_count: 10
+d2v__d2v__vector_size: 200
+lr__cv__lowercase: true
+lr__cv__ngram_range: !!python/tuple [1, 1]
+lr__lr__estimator__C: 0.1
+lr__lr__estimator__penalty: l2
+lr__tfidf__norm: l2
+transformer_weights: !!python/tuple [0.3, 0.7]

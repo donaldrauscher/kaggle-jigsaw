@@ -1,5 +1,5 @@
 worker:
-  replicas: 0
+  replicas: 8
   env:
     - name: EXTRA_PIP_PACKAGES
       value: >-
