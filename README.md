@@ -1,5 +1,7 @@
 
-Using [Helm chart](https://github.com/kubernetes/charts/tree/master/stable/dask) to install Dask on a Kubernetes cluster.  Use `kubectl cp` to copy files to/from the Jupyter instance.
+I modified this [Helm chart](https://github.com/kubernetes/charts/tree/master/stable/dask) which installs Dask on a Kubernetes cluster, adding support for [`nodeSelectors`](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/).  This allows you to put Jupyter and the Dask scheduler in a separate node pool from the Dask workers; you can scale Dask workers up / down without inadvertently killing your Jupyter instance.
+
+Use `kubectl cp` to copy files to/from the Jupyter instance.
 
 I specifically used Dask to parallelize hyperparameter tuning.  The [`dask-searchcv` package](http://dask-searchcv.readthedocs.io/en/latest/) provides implementations of sklearn’s GridSearchCV and RandomizedSearchCV classes.
 

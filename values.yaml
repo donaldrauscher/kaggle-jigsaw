@@ -1,5 +1,36 @@
+# nameOverride: dask
+# fullnameOverride: dask
+
+scheduler:
+  name: scheduler
+  image:
+    repository: "daskdev/dask"
+    tag: "0.17.1"
+    pullPolicy: IfNotPresent
+  replicas: 1
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dask-cluster-np-scheduler
+  serviceType: LoadBalancer
+  servicePort: 8786
+  resources:
+    limits:
+      cpu: 1
+      memory: 3.5G
+
+webUI:
+  name: webui
+  servicePort: 80
+
 worker:
-  replicas: 8
+  name: worker
+  image:
+    repository: "daskdev/dask"
+    tag: "0.17.1"
+    pullPolicy: IfNotPresent
+  replicas: 6
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dask-cluster-np-workers
+  aptPackages: >-
   env:
     - name: EXTRA_PIP_PACKAGES
       value: >-
@@ -13,16 +44,24 @@ worker:
       value: >-
         xgboost
         -c conda-forge
-  limits:
-    cpu: 1
-    memory: 3.5G
-
-workers:
-  default_resources:
-    cpu: 1
-    memory: 3.5G
+  resources:
+    limits:
+      cpu: 1
+      memory: 3.5G
 
 jupyter:
+  name: jupyter
+  enabled: true
+  image:
+    repository: "daskdev/dask-notebook"
+    tag: "0.17.1"
+    pullPolicy: IfNotPresent
+  replicas: 1
+  nodeSelector:
+    cloud.google.com/gke-nodepool: dask-cluster-np-scheduler
+  serviceType: LoadBalancer
+  servicePort: 80
+  password: 'sha1:aae8550c0a44:9507d45e087d5ee481a5ce9f4f16f37a0867318c'  # 'dask'
   env:
     - name: EXTRA_PIP_PACKAGES
       value: >-
@@ -36,6 +75,7 @@ jupyter:
     - name: EXTRA_CONDA_PACKAGES
       value: >-
         xgboost
-  limits:
-    cpu: 2
-    memory: 7G
+  resources:
+    limits:
+      cpu: 1
+      memory: 3.5G
